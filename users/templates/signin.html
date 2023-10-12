@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+
+  <form method="post">
+    {% csrf_token %}
+    <h1>Iniciar Sesión</h1>
+
+    <div class="inputBox">
+      <span class="fas fa-user"></span>
+      <input type="text" name="username" placeholder="Nombre de usuario" required>
+  </div>
+  
+  <div class="inputBox">
+      <span class="fas fa-key"></span>
+      <input type="password" name="password" id="password-in" placeholder="Contraseña" required>
+
+      <span id="show-pass-in" class="fas fa-eye" onclick="signinPass();"></span>
+      <span id="hide-pass-in" class="fas fa-low-vision" onclick="signinPass();"></span>
+  </div>
+
+    <div class="remember-forgot">
+      <label for=""> <input type="checkbox" name="" id="" />Recordarme </label>
+      <a href="#">Olvido su contraseña?</a>
+    </div>
+
+    <button type="submit" class="btn">Iniciar Sesión</button>
+
+    <div class="signup-link">
+      <p>No tienes una cuenta?</p>
+      <a href="{% url 'signup' %}">Registrarse</a>
+    </div>
+  </form>
+
+{% endblock content %}

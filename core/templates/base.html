@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'partials/head.html' %}
+    
+<body>
+    
+    {% include 'partials/navbar.html' %}
+
+
+    <main>
+        {% block content %}
+        
+        {% endblock content %}
+    </main>
+
+
+
+    
+    {% block footer %}
+        
+    {% endblock footer %}
+        
+    {% load static %}  
+     <script src="{% static 'js/show_pass.js' %}"></script>   
+    <script src="https://kit.fontawesome.com/994fe1cfb9.js" crossorigin="anonymous"></script>
+</body>
+</html>
