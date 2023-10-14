@@ -1,149 +1,131 @@
 .header {
   position: fixed;
+  background-color: #1f2e46;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 10%;
+  padding: 0px 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
 }
 
-.header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(50px);
-  z-index: -1;
-}
-
-.header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(95, 231, 255, 0.4), transparent);
-  transition: 0.5s;
-}
-
-.header:hover::after {
-  left: 100%;
-}
-
-.logo {
-  font-size: 2rem;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.navbar a {
-  font-size: 1.15rem;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 2.5rem;
-}
-
-#check {
-  display: none;
-}
-
-.icons {
-  position: absolute;
-  right: 5%;
-  font-size: 2.8rem;
-  color: #fff;
+.header .logo {
   cursor: pointer;
+}
+
+.header .logo img {
+  height: 50px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+.header .logo img:hover {
+  transform: scale(1.2);
+}
+
+.header .nav-links {
+  list-style: none;
+}
+
+.header .nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.header .nav-links li:hover,
+.overlay a:hover {
+  transform: scale(1.1);
+}
+
+.header .nav-links a {
+  font-size: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header .nav-links li a:hover {
+  color: #69e8ff;
+  transform: scale(1.1);
+}
+
+.header .btn button {
+  font-weight: 700;
+  color: #ffffff;
+  padding: 9px 25px;
+  background: #a40000;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover {
+  background-color: #ff0000;
+  transform: scale(1.1);
+}
+
+#menu,
+#close {
+  display: none;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 800px) {
+  .nav-links,
+  .btn {
+    display: none;
+  }
+
+  #menu {
+    display: inherit;
+  }
+}
+
+/*Nav Mobile*/
+
+.header a {
+  text-decoration: none;
+}
+
+.header .overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 50px;
+  background-color: rgba(33, 49, 63, 0.95);
+  overflow: hidden;
+  transition: all 0.3s ease 0s;
   display: none;
 }
 
-@media (max-width: 992px) {
-  .header {
-    padding: 1 rem 5%;
-  }
+.header .overlay .overlay-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (max-width: 768px) {
-  .icons {
-    display: inline-flex;
-  }
-
-  #check:checked ~ .icons #menu-icon {
-    display: none;
-  }
-
-  .icons #close-icon {
-    display: none;
-  }
-
-  #check:checked ~ .icons #close-icon {
-    display: block;
-  }
-
-  .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(50px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: 0.3s ease;
-  }
-
-  #check:checked ~ .navbar {
-    height: 17.7rem;
-  }
-
-  .navbar a {
-    display: block;
-    font-size: 1.1rem;
-    margin: 1.5rem 0;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(-50px);
-    transition: 0.3s ease;
-  }
-
-  #check:checked ~ .navbar a {
-    transform: translateY(0);
-    opacity: 1;
-    transition-delay: calc(0.15s * var(--i));
-  }
+.header .overlay a {
+  padding: 10px;
+  font-size: 25px;
+  display: block;
+  transition: all 0.3s ease 0s;
+  font-weight: 700;
+  color: #ffffff;
 }
 
+.header .overlay a:hover,
+.header .overlay a:focus {
+  color: #69e8ff;
+}
 
-@media (max-width: 320px) {
-  .header {
-    padding: 1rem 5%;
+@media screen and (max-height: 450px) {
+  .header .overlay a {
+    font-size: 15px;
   }
-
-  .header::before,
-  .header::after {
-    content: none;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-  }
-
-  .navbar a {
-    font-size: 1rem;
-    margin-left: 1rem;
-  }
-
-  .icons {
-    font-size: 2rem;
-  }
-
 }

@@ -11,12 +11,12 @@
 
   <div class="inputBox">
     <span class="fas fa-user"></span>
-    <input type="text" require name="name" placeholder="Nombres" />
+    <input type="text" require name="first_name" placeholder="Nombres" />
   </div>
 
   <div class="inputBox">
     <span class="fas fa-user"></span>
-    <input type="text" required name="surname" placeholder="Apellidos" />
+    <input type="text" required name="last_name" placeholder="Apellidos" />
   </div>
 
   <div class="inputBox">
@@ -36,10 +36,18 @@
 
   <div class="inputBox">
     <span class="fas fa-key"></span>
-    <input type="password" required name="password" id="password-up" placeholder="Contraseña"     />
+    <input type="password" required name="password1" id="password-up1" placeholder="Contraseña"     />
 
-    <span id="show-pass-up" class="fas fa-eye" onclick="signupPass();"></span>
-    <span id="hide-pass-up" class="fas fa-low-vision" onclick="signupPass();"></span>
+    <span id="show-pass-up1" class="fas fa-eye" onclick="signupPass();"></span>
+    <span id="hide-pass-up1" class="fas fa-low-vision" onclick="signupPass();"></span>
+  </div>
+
+  <div class="inputBox">
+    <span class="fas fa-key"></span>
+    <input type="password" required name="password2" id="password-up2" placeholder="Confirmar Contraseña"     />
+
+    <span id="show-pass-up2" class="fas fa-eye" onclick="signupComfirmPass();"></span>
+    <span id="hide-pass-up2" class="fas fa-low-vision" onclick="signupComfirmPass();"></span>
   </div>
 
   <button type="submit" class="btn">Registrarse</button>

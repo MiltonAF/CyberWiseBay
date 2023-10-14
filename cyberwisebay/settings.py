@@ -110,7 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'django.contrib.auth.password_validation.PBKDF2PasswordHasher',
+    },
 ]
+
 
 
 # Internationalization

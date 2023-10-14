@@ -6,19 +6,22 @@ from .models import CustomUser
 
 
 # Create your views here.
-def signin(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
 
-        # Autentica al usuario
-        user = authenticate(request, username=username, password=password)
-        
-        if user is not None:
-            login(request, user)
+def signin(request):
+    if request.method == 'GET':
+        return render(request, 'signin.html')
+
+    else:
+
+        user = authenticate(
+            request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, "signin.html", {'error': 'username of password incorret'})
+        else:
+            login(request,user)
             return redirect('profile')
 
-    return render(request, 'signin.html')
+
 
 def signup(request):
     
@@ -29,7 +32,7 @@ def signup(request):
             first_name = request.POST['first_name']
             last_name = request.POST['last_name']
             email = request.POST['email']
-            telefono = request.POST['telefono']
+            phone = request.POST['phone']
             username = request.POST['username']
             password1 = request.POST['password1']
             password2 = request.POST['password2']       
@@ -37,8 +40,8 @@ def signup(request):
             if password1 == password2:
                  try:
                      # Crea el usuario
-                     es_profesor = False
-                     user = CustomUser.objects.create_user(username=username, password=password1, first_name=first_name, last_name=last_name, email=email, telefono=telefono, es_profesor=es_profesor)
+                     is_master = False
+                     user = CustomUser.objects.create_user(username=username, password=password1, first_name=first_name, last_name=last_name, email=email, phone=phone, is_master=is_master)
                      login(request, user)  # Inicia sesión automáticamente después del registro
                      return redirect('profile')
                  except IntegrityError:
@@ -46,7 +49,23 @@ def signup(request):
 
     return render(request, 'signup.html', {"error": 'La contraseñas no coinciden'})
 
-@login_required
 def profile(request):
-    return render(request, 'profile.html')
+    user = request.user  # Obtiene el usuario autenticado
+    
+    # Ahora puedes acceder a los datos del usuario
+    username = user.username
+    first_name = user.first_name
+    last_name = user.last_name
+    email = user.email
+    phone = user.phone
+    is_master = user.is_master  # Puedes usar esto para determinar si el usuario es profesor o no
+
+    return render(request, 'profile.html', {
+        'username': username,
+        'first_name': first_name,
+        'last_name': last_name,
+        'email': email,
+        'phone': phone,
+        'is_master': is_master,
+    })
 

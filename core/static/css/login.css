@@ -1,153 +1,153 @@
-form{
-    width: 420px;
-    background: rgba(34, 0, 66, 0.2);
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
-    box-sizing: 0 0 10px rgba(0, 0, 0, .2);
-    color: #fff;
-    border-radius: 10px;
-    padding: 30px 40px;
+form {
+  width: 420px;
+  background: rgba(34, 0, 66, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-sizing: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
 }
 
-form h1{
-    font-size: 36px;
-    text-align: center;
-
+form h1 {
+  font-size: 36px;
+  text-align: center;
 }
 
 form .inputBox {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background: transparent;
-    border: var(--border);
-    border-radius: 40px;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: transparent;
+  border: var(--border);
+  border-radius: 40px;
 }
 
 form .inputBox span {
-    color: #fff;
-    font-size: 20px;
-    padding-left: 1.5rem;
-    padding-right: 1rem;
+  color: #fff;
+  font-size: 20px;
+  padding-left: 1.5rem;
+  padding-right: 1rem;
 }
 
 #hide-pass-in,
-#hide-pass-up {
-    display: none;
+#hide-pass-up1,
+#hide-pass-up2 {
+  display: none;
 }
 
 form .inputBox input {
-    width: 100%;
-  padding: 1rem .5rem;
+  width: 100%;
+  padding: 1rem 0.5rem;
   font-size: 20px;
   color: #fff;
   text-transform: none;
   background: none;
-
 }
 
-form .remember-forgot{
-    display: flex;
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin: 15px 0 15px;
+form .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: 15px 0 15px;
 }
 
-.remember-forgot label input{
-    accent-color: #fff;
-    margin-right: 3px;
+.remember-forgot label input {
+  accent-color: #fff;
+  margin-right: 3px;
 }
 
-.remember-forgot a{
-    color: #fff;
-    text-decoration: none;
+.remember-forgot a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.remember-forgot a:hover{
-    text-decoration: underline;
+.remember-forgot a:hover {
+  text-decoration: underline;
 }
 
-form .btn{
-    width: 100%;
-    height: 45px;
-    background: #fff;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-
+form .btn {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
 }
 
-form .btn:hover{
-    background: #7d19ff79;
-    color: #fff;
+form .btn:hover {
+  background: #7d19ff79;
+  color: #fff;
 }
 
-form .signup-link, form .signip-link{
-    display: flex;
-    font-size: 14.5px;
-    text-align: center;
-    margin: 20px 0 15px;
-    color: #fff;
+form .signup-link,
+form .signip-link {
+  display: flex;
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+  color: #fff;
 }
 
-.signup-link a, .signip-link a{
-margin-left: 5px;
-color: #7d19ff;
-text-decoration: none;
-font-weight: 600;
+.signup-link a,
+.signip-link a {
+  margin-left: 5px;
+  color: #7d19ff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.signup-link a:hover, .signip-link a:hover{
-    text-decoration: underline;
+.signup-link a:hover,
+.signip-link a:hover {
+  text-decoration: underline;
 }
-
 
 @media screen and (max-width: 768px) {
-    form {
-        padding: 20px;
-    }
-    form h1 {
-        font-size: 24px;
-    }
-    form .inputBox input {
-        font-size: 16px;
-    }
-    form .btn {
-        height: 40px;
-        font-size: 14px;
-    }
+  form {
+    padding: 20px;
+  }
+  form h1 {
+    font-size: 24px;
+  }
+  form .inputBox input {
+    font-size: 16px;
+  }
+  form .btn {
+    height: 40px;
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 320px) {
-    form {
-        max-width: 280px;
-        padding: 15px;
-    }
-    form h1 {
-        font-size: 20px;
-    }
-    form .inputBox span {
-        font-size: 16px;
-        padding-left: 1rem;
-        padding-right: 0.5rem;
-    }
-    form .inputBox input {
-        font-size: 14px;
-        padding: 0.8rem 0.4rem;
-    }
-    form .btn {
-        height: 35px;
-        font-size: 12px;
-    }
-    form .signup-link,
-    form .signip-link {
-        font-size: 12px;
-        margin: 15px 0 10px;
-    }
+  form {
+    max-width: 280px;
+    padding: 15px;
+  }
+  form h1 {
+    font-size: 20px;
+  }
+  form .inputBox span {
+    font-size: 16px;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+  }
+  form .inputBox input {
+    font-size: 14px;
+    padding: 0.8rem 0.4rem;
+  }
+  form .btn {
+    height: 35px;
+    font-size: 12px;
+  }
+  form .signup-link,
+  form .signip-link {
+    font-size: 12px;
+    margin: 15px 0 10px;
+  }
 }
