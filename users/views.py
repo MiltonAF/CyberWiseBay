@@ -17,10 +17,9 @@ def signin(request):
             request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
             return render(request, "signin.html", {'error': 'username of password incorret'})
-        else:
-            login(request,user)
+        else:         
+            login(request, user)
             return redirect('profile')
-
 
 
 def signup(request):
@@ -41,7 +40,8 @@ def signup(request):
                  try:
                      # Crea el usuario
                      is_master = False
-                     user = CustomUser.objects.create_user(username=username, password=password1, first_name=first_name, last_name=last_name, email=email, phone=phone, is_master=is_master)
+                     is_admin = False
+                     user = CustomUser.objects.create_user(username=username, password=password1, first_name=first_name, last_name=last_name, email=email, phone=phone, is_master=is_master, is_admin=is_admin)
                      login(request, user)  # Inicia sesión automáticamente después del registro
                      return redirect('profile')
                  except IntegrityError:
@@ -49,23 +49,20 @@ def signup(request):
 
     return render(request, 'signup.html', {"error": 'La contraseñas no coinciden'})
 
-def profile(request):
-    user = request.user  # Obtiene el usuario autenticado
-    
-    # Ahora puedes acceder a los datos del usuario
-    username = user.username
-    first_name = user.first_name
-    last_name = user.last_name
-    email = user.email
-    phone = user.phone
-    is_master = user.is_master  # Puedes usar esto para determinar si el usuario es profesor o no
+def signout(request):
+    logout(request)
+    return redirect('signin')
 
-    return render(request, 'profile.html', {
-        'username': username,
-        'first_name': first_name,
-        'last_name': last_name,
-        'email': email,
-        'phone': phone,
-        'is_master': is_master,
-    })
+@login_required
+def profile(request):
+    user = request.user  # Obtener el usuario actual
+    if user.is_admin:
+        # Lógica para usuarios administradores
+        return render(request, 'cyber_admin.html', {'user': user})
+    elif user.is_master:
+        # Lógica para usuarios profesores
+        return render(request, 'cyber_instructor.html', {'user': user})
+    else:
+        # Lógica para usuarios estudiantes (rol predeterminado)
+        return render(request, 'cyber_learner.html', {'user': user})
 
